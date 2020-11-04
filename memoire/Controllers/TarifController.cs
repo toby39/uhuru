@@ -11,8 +11,12 @@ namespace memoire.Controllers
     [Route("tarif")]
     public class TarifController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db;
 
+        public TarifController(DataContext db)
+        {
+            this.db = db;
+        }
         public IActionResult Index()
         {
             ViewBag.Tarifs = db.Tarifs.ToList();

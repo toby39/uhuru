@@ -12,8 +12,12 @@ namespace memoire.Controllers
     [Route("user")]
     public class UserController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db;
 
+        public UserController(DataContext db)
+        {
+            this.db = db;
+        }
         public IActionResult Index()
         {
             ViewBag.Users = db.Users.ToList();

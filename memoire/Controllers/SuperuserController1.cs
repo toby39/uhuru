@@ -10,7 +10,12 @@ namespace memoire.Controllers
     [Route("superuser")]
     public class SuperuserController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db;
+
+        public SuperuserController(DataContext db)
+        {
+            this.db = db;
+        }
 
        
         public IActionResult Index()

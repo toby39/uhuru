@@ -10,8 +10,12 @@ namespace memoire.Controllers
     [Route("revendeur")]
     public class RevendeurController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db;
 
+        public RevendeurController(DataContext db)
+        {
+            this.db = db;
+        }
         public IActionResult Index()
         {
             ViewBag.Revendeurs = db.Revendeurs.ToList();

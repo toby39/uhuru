@@ -12,9 +12,13 @@ namespace memoire.Controllers
     [Route("approsionement")]
     public class ApprovisionementController : Controller
     {
-        private DataContext db = new DataContext();
-       
-        
+        private readonly DataContext db;
+
+        public ApprovisionementController(DataContext db)
+        {
+            this.db = db;
+        }
+
         public IActionResult Index()
         {
             ViewBag.Approvisionements = db.Approvisionements.Include(a => a.Revendeur ).ToList();

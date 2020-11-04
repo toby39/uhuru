@@ -1,11 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
 namespace memoire.Models
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<ApplicationUser>
     {
+        public DataContext(DbContextOptions<DataContext> options)
+            : base(options)
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()
@@ -16,6 +23,7 @@ namespace memoire.Models
             optionsBuilder.UseMySql(configuration["ConnectionStrings:DefaultConnection"]);
 
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Approvisionement>()
@@ -29,7 +37,7 @@ namespace memoire.Models
 
         public DbSet<Vente> Ventes { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
 
         public DbSet<Agence> Agences { get; set; }
 

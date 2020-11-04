@@ -14,8 +14,14 @@ namespace memoire.Controllers
     [Route("vente")]
     public class VenteController : Controller
     {
-        private DataContext db = new DataContext();
         private static Random random = new Random();
+
+        private readonly DataContext db;
+
+        public VenteController(DataContext db)
+        {
+            this.db = db;
+        }
 
         public IActionResult Index()
         {

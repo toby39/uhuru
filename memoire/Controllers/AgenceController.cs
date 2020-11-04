@@ -13,9 +13,13 @@ namespace memoire.Controllers
     public class AgenceController : Controller
     {
 
-        private DataContext db = new DataContext();
+        private readonly DataContext db;
 
-        
+        public AgenceController(DataContext db)
+        {
+            this.db = db;
+        }
+
         public IActionResult Index()
         {
             ViewBag.Agences = db.Agences.ToList();

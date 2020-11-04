@@ -10,9 +10,13 @@ namespace memoire.Controllers
     [Route("client")]
     public class ClientController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db;
 
-      
+        public ClientController(DataContext db)
+        {
+            this.db = db;
+        }
+
         public IActionResult Index()
         {
             ViewBag.Clients = db.Clients.ToList();
