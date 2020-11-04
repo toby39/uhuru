@@ -1,0 +1,41 @@
+﻿@model memoire.Models.Superuser
+
+@{
+    ViewData["Title"] = "Nouveau Super User";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
+        <li class="breadcrumb-item"><a asp-controller="superuser" asp-action="">Super Utilisateurs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ajouter Super Utilisateur</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" asp-controller="client" asp-action="add">
+                    <div class="form-group col-md-6">
+                        <label>Noms :</label>
+                        <input type="text" name="noms" asp-for="noms" required class="form-control" placeholder="Noms">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Username :</label>
+                        <input type="text" asp-for="username" name="username" required class="form-control" placeholder="Username">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Password :</label>
+                        <input type="password" asp-for="password" name="password" required class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="submit" class="btn btn-primary" value="Enregistrer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

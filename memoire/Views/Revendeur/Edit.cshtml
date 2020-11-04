@@ -1,0 +1,43 @@
+﻿@model memoire.Models.Revendeur
+
+@{
+    //Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+    ViewData["Title"] = "Modifier Revendeur";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
+        <li class="breadcrumb-item"><a asp-controller="revendeur" asp-action="">Revendeurs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Modifier Revendeur</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" asp-controller="revendeur" asp-action="edit">
+                    <div class="form-group col-md-6">
+                        <label>Noms :</label>
+                        <input type="text" name="noms" asp-for="noms" required class="form-control" placeholder="Noms">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Sexe :</label>
+                        <select name="sexe" asp-for="sexe" required class="form-control">
+                            <option value="m">Masculin</option>
+                            <option value="f">Féminin</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Télephone :</label>
+                        <input type="text" asp-for="telephone" name="telephone" required class="form-control" placeholder="Télephone">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="submit" class="btn btn-primary" value="Enregistrer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

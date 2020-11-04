@@ -1,0 +1,42 @@
+﻿@model memoire.Models.Agence
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
+        <li class="breadcrumb-item"><a asp-controller="agence" asp-action="">Agence</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Nouvelle Agence</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" asp-controller="client" asp-action="add">
+                    <div class="form-group col-md-6">
+                        <label>Désignation :</label>
+                        <input type="text" name="designation" asp-for="designation" required class="form-control" placeholder="designation">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Adresse :</label>
+                        <input type="text" name="adresse" asp-for="adresse" required class="form-control" placeholder="adresse">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Username :</label>
+                        <input type="text" asp-for="username" name="username" required class="form-control" placeholder="username">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Username :</label>
+                        <input type="password" asp-for="password" name="password" required class="form-control" placeholder="password">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="submit" class="btn btn-primary" value="Enregistrer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

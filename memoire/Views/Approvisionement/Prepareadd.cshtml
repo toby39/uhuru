@@ -1,0 +1,48 @@
+﻿@{
+    //Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+        <li class="breadcrumb-item"><a asp-controller="approvisionement">Approvisionement</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Selectionner Revendeur</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Noms</th>
+                                <th>Sexe</th>
+                                <th>Télephone</th>
+                                <th>Solde Actuel</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Revendeur in ViewBag.Revendeurs)
+                            {
+                                <tr>
+                                    <td>@Revendeur.id</td>
+                                    <td>@Revendeur.noms</td>
+                                    <td>@Revendeur.sexe</td>
+                                    <td>@Revendeur.telephone</td>
+                                    <td>@Revendeur.solde</td>
+                                    <td> <a asp-controller="approvisionement" asp-action="prepare" asp-route-id="@Revendeur.id"> Selectionnner </a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

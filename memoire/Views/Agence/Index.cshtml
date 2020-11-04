@@ -1,0 +1,46 @@
+﻿
+<nav class="page-breadcrumb">
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Agence</li>
+</ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <a type="button" class="btn btn-primary" asp-controller="agence" asp-action="add">
+                        Nouvelle Agence
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Désignation</th>
+                                <th>Adresse</th>
+                                <th>Username</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Agences in ViewBag.Agences)
+                            {
+                                <tr>
+                                    <td>@Agences.id</td>
+                                    <td>@Agences.designation</td>
+                                    <td>@Agences.adresse</td>
+                                    <td>@Agences.Username</td>
+                                    <td> <a asp-controller="agence" asp-action="edit" asp-route-id="@Agences.id"> Editer </a> | <a asp-controller="client" asp-action="delete" asp-route-id="@Agences.id" onclick="return confirm('Etes-vous Sur ?')"> Supprimer </a> </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

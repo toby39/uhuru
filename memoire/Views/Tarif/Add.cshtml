@@ -1,0 +1,44 @@
+﻿
+@model memoire.Models.Tarif
+
+@{
+    ViewData["Title"] = "Nouveau Tarif";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
+        <li class="breadcrumb-item"><a asp-controller="tarif" asp-action="">Tarif</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Nouveau Tarif</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" asp-controller="tarif" asp-action="add">
+                    <div class="form-group col-md-6">
+                        <label>Noms :</label>
+                        <input type="text" name="designation" asp-for="designation" required class="form-control" placeholder="Entrez la désignation">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Transfert:</label>
+                        <input type="text" asp-for="tranfert" name="tranfert" required class="form-control" placeholder="Transfert">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Uptime:</label>
+                        <input type="text" asp-for="uptime" name="uptime" required class="form-control" placeholder="Uptime">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Descrition:</label>
+                        <input type="text" asp-for="description" name="description" required class="form-control" placeholder="Uptime">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="submit" class="btn btn-primary" value="Enregistrer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

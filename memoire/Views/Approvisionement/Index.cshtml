@@ -1,0 +1,52 @@
+﻿@{
+    //Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+    ViewData["Title"] = "Approviosionnemnt";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Approvisionnement</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <a type="button" class="btn btn-primary" asp-controller="approvisionement" asp-action="prepareadd">
+                        Nouvelle Approvisionemnt
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Numéro</th>
+                                <th>Revendeur</th>
+                                <th>Date</th>
+                                <th>Quatité Debité</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Approvionement in ViewBag.Approvisionements)
+                            {
+                            <tr>
+                                <td>@Approvionement.id</td>
+                                <td>@Approvionement.numero</td>
+                                <td>@Approvionement.Revendeur.noms</td>
+                                <td>@Approvionement.date</td>
+                                <td>@Approvionement.quantite</td>
+                                <td> <a asp-controller="approvisionement" asp-action="delete" asp-route-id="@Approvionement.id" onclick="return confirm('Etes-vous Sur ?')"> Annuler Transaction </a> </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

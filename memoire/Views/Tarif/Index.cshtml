@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Tarif";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Tarif</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <a type="button" class="btn btn-primary" asp-controller="tarif" asp-action="add">
+                        Ajouter tarif
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Désignation</th>
+                                <th>Tansfert</th>
+                                <th>Délai</th>
+                                <th>Descritipn</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Tarif in ViewBag.Tarifs)
+                            {
+                            <tr>
+                                <td>@Tarif.id</td>
+                                <td>@Tarif.designation</td>
+                                <td>@Tarif.tranfert</td>
+                                <td>@Tarif.uptime</td>
+                                <td>@Tarif.description</td>
+                                <td> <a asp-controller="tarif" asp-action="edit" asp-route-id="@Tarif.id"> Editer </a> | <a asp-controller="tarif" asp-action="delete" asp-route-id="@Tarif.id" onclick="return confirm('Etes-vous Sur ?')"> Supprimer </a> </td>
+                            </tr>
+                            } 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

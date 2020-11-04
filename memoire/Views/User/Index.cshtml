@@ -1,0 +1,50 @@
+﻿@{
+   // Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Utilisateur</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <a type="button" class="btn btn-primary" asp-controller="user" asp-action="add">
+                        Ajouter Utilisateur
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Noms</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var User in ViewBag.Users)
+                            {
+                            <tr>
+                                <td>@User.id</td>
+                                <td>@User.noms</td>
+                                <td>@User.username</td>
+                                <td>@User.password</td>
+                                <td> <a asp-controller="user" asp-action="edit" asp-route-id="@User.id"> Editer </a> | <a asp-controller="user" asp-action="delete" asp-route-id="@User.id" onclick="return confirm('Etes-vous Sur ?')"> Supprimer </a> </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
